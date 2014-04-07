@@ -1,4 +1,4 @@
-cs112
+Human Testing Suite
 =====
 
-Study Suite for CS112
+Le Suite
