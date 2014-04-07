@@ -1,4 +1,4 @@
 Human Testing Suite
 =====
 
-Le Suite
+A Multiple Choice Testing Suite designed for ease of testing
