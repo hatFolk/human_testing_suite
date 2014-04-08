@@ -1,6 +1,5 @@
 """A Testing Module that makes random multiple choice questions from a text file."""
 import math
-import itertools
 class Tests:
     dict = {}
     def __init__(self):
@@ -16,17 +15,24 @@ def getRand():
     pass
 
 def makeSuite(text):
-    return {text[i].rstrip('\n'):eval(text[i+1].rstrip('\n')) for i in range(0, len(text), 2)}
+    return {text[i][0]:eval(text[i][1]) for i in range(len(text))}
 
-def makeTest(list):
-    text = []
-    for i in list:
-        if i[0] == '[':
-            
+def makeTest(list, i = 0):
+    while i+1 < len(list):
+        if list[i+1][0] != '[' :
+            list[i] += list.pop(i+1)
+        else:
+            i += 2
+    return list
+
+def askQuestion(list, answer):
+    print(list[0])
+    choice = {num:choice for num, choice in enumerate(list[1], 1)}
 
 def main(): #Run driver
     filename = open("multiple_choice.txt")
     text = filename.readlines()
-    print(makeSuite(text))
+    makeTest(text) # Made it use the same list efficiency?
+    print(text)
 
 if __name__ == "__main__": main()
