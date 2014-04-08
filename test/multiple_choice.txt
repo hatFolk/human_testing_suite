@@ -1,6 +1,9 @@
 Who made python?
 ["Guido Van Rossum", "Darth Vader", "Donald Knuth", "Ruffian"]
+Guido Van Rossum
+
 What does this code do?
 def main():
 	print("Hello")
 ["Hello", "hello", "hello?"]
+Hello
