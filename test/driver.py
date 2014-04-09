@@ -1,6 +1,5 @@
 """A Testing Module that makes random multiple choice questions from a text file."""
 import sys
-
 class tests:
     database = {}
     numQuestions = 0
