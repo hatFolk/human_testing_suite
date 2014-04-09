@@ -1,5 +1,6 @@
 """A Testing Module that makes random multiple choice questions from a text file."""
-import math
+import sys
+
 class Tests:
     dict = {}
     x = 0
@@ -28,17 +29,16 @@ def makeTest(list):
             i += 2
         else:
             list[i] += list.pop(i+1)
-    return list
 
 def askQuestion(list, answer):
     print(list[0])
     choice = {num:choice for num, choice in enumerate(list[1], 1)}
 
-def main(): #Run drivery
+def main(args): #Run driver
     filename = open("multiple_choice.txt", "rU")
     text = filename.readlines()
     makeTest(text)
     dict = makeSuite(text)
     print(dict)
     
-if __name__ == "__main__": main()
+if __name__ == "__main__": main(sys.argv)
