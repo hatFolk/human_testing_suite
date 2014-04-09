@@ -2,6 +2,7 @@
 import math
 class Tests:
     dict = {}
+    x = 0
     def __init__(self):
         pass
     def start_test(self):
