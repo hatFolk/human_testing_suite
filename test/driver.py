@@ -21,7 +21,7 @@ class tests:
                 xs.pop(i+1)
                 i += 1
             elif xs[i+1][0] == '[':
-                i += 2
+                i += 1
             else:
                 xs[i] += xs.pop(i+1)
         return xs
@@ -30,8 +30,8 @@ class tests:
         return self.database
 
     def askQuestion(question, list):
-        print(question)
         choice = {k:v for k, v in enumerate(list[0])}
+        print(question)
         for i in choice.items().sort():
             print("\t{}. {}".format(i[0], i[1]))
         ans = input("[Pick your number] > ")
@@ -39,20 +39,19 @@ class tests:
             print("Correct!" if list[1] == choice[int(ans)] else "Wrong..., the answer was : {}".format(list[1]))
             return list[1] == choice[int(ans)]
         except (KeyError, ValueError):
-            print("Invalid answer...")
+                print("Invalid answer...")
 
-    def startQuestions():
+    def startQuestions(x = numQuestions):
+        points = 0
+        ctr = 0
         questions = list(self.database.keys())
         random.shuffle(questions)
-        ctr = self.numQuestions
-        points = 0
-        while question: #i.e., questions still have things in it
+        while 0 < x: #i.e., questions still have things in it
             if tests.askQuestion(questions[ctr], self.database[questions[ctr]]):
                 points += 1
             choice = input("\t[Remove Question? Type 'Yes' or 'yes', else it will be kept] > ")
             if choice.lower() == 'yes':
-                questions.pop()
-                ctr -= 1
+                questions.pop(ctr)        
         print("That's all the questions! Your Percent Accuracy: {}".format(points/self.numQuestions))
 
     def __len__(self):
@@ -74,4 +73,4 @@ def main(filenames):
             except (FileNotFoundError, IndexError) as e:
                 print("Problem! You got this : {}".format(e))
 
-if __name__ == "__main__" : main(sys.argv)
+if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
