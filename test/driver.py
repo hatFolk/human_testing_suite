@@ -21,7 +21,7 @@ class tests:
                 xs.pop(i+1)
                 i += 1
             elif xs[i+1][0] == '[':
-                i += 1
+                i += 2
             else:
                 xs[i] += xs.pop(i+1)
         return xs
@@ -41,18 +41,19 @@ class tests:
         except (KeyError, ValueError):
                 print("Invalid answer...")
 
-    def startQuestions(x = numQuestions):
+    def startQuestions(self, x = numQuestions):
         points = 0
         ctr = 0
-        questions = list(self.database.keys())
+        questions = list(self.database.keys())[:x]
         random.shuffle(questions)
-        while 0 < x: #i.e., questions still have things in it
+        while questions: #i.e., questions still have things in it
             if tests.askQuestion(questions[ctr], self.database[questions[ctr]]):
                 points += 1
             choice = input("\t[Remove Question? Type 'Yes' or 'yes', else it will be kept] > ")
             if choice.lower() == 'yes':
                 questions.pop(ctr)        
-        print("That's all the questions! Your Percent Accuracy: {}".format(points/self.numQuestions))
+        print("points = {}; x = {} ;".format(points, x)) 
+        print("That's all the questions! Your Percent Accuracy: {}".format(points/x))
 
     def __len__(self):
         return self.numQuestions
