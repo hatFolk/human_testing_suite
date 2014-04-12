@@ -46,6 +46,7 @@ class tests:
         ctr = 0
         questions = list(self.database.keys())[:x]
         random.shuffle(questions)
+        print(questions)
         while questions: #i.e., questions still have things in it
             if tests.askQuestion(questions[ctr], self.database[questions[ctr]]):
                 points += 1
@@ -63,6 +64,17 @@ class tests:
         for k, v in self.dict.items():
             str += "Question:\n{}\n\tChoices:\n\t{}\n\tAnswer: {}\n".format(k, v[0], v[1])
         return str
+
+class Question:
+    question = ""
+    choice = []
+    ans = ""
+    def __init__(self, question, choice, ans):
+        self.question = question
+        self.choice = choice
+        self.ans = ans
+    def __str__(self):
+        return "Hi"
 
 def main(filenames):
     """If filenames are passed in, they will be created as tests and then tested one by one"""
