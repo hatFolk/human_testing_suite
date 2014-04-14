@@ -1,7 +1,7 @@
 """A Testing Module that makes random multiple choice questions from a text file."""
 import sys
 import random
-# Such OOP. Very wow.
+
 class Tests:
     database = {}
     numQuestions = 0
@@ -9,28 +9,28 @@ class Tests:
         """Tests is initialized with a filename containing Questions. This builds the database to test from"""
         file = open(filename, "rU")
         qlist = Tests.makeTest(self, file.readlines())
-        Tests.makeSuite(self, qlist)
-        print(self.database)
+        print(qlist)
+        self.numQuestions = len(qlist)/3
     
     def makeSuite(self, text):
-        i = 0
-        while i < len(text):
-            self.database[self.numQuestions] = Question(text[i].rstrip(), eval(text[i+2]), text[i+2].rstrip())
-            self.numQuestions += 1
-            i += 3
+#        return {Question(text[i].rstrip(), eval(text[i+1]), text[i+2].rstrip()))}
+        pass
 
-    def makeTest(self, xs): # Fix the logic. Make simpler?
+    def makeTest(self, xs): # Fix the logic
         i = 0
         while i < len(xs)-1:
+            print("{} : {}".format(i, xs[i]))
+            print("\t{} : {}".format(i+1, xs[i+1]))
             if xs[i+1] == '\n':
                 xs.pop(i+1)
                 i += 1
             elif xs[i+1][0] == '[':
-                if xs[i+1][-2] == ']':
+                print("\t{}".format(xs[i+1][-1]))
+                if xs[i+1][-1] == ']':
                     i += 2
                 else:
                     i += 1
-                    while xs[i+1][-2] != ']':
+                    while xs[i+1][-1] != ']':
                         xs[i] += xs.pop(i+1)
             else:
                 xs[i] += xs.pop(i+1)
@@ -89,11 +89,6 @@ class Question:
         return enumerate(choice)
     def getAnswer(self):
         return ans
-    def askQuestion(self):
-        print(getQuestion(self))
-        multChoice = getChoice(self)
-        for i,j in multChoice:
-            print("{}.\n{}".format(i, j)
     def __str__(self):
         return "Question:\n\t{}\nChoices:\n\t{}\nAnswer\n\t{}".format(self.question, self.choice, self.ans)
 
@@ -106,8 +101,5 @@ def main(filenames):
                 #newTest.startQuestions()
             except (FileNotFoundError, IndexError) as e:
                 print("Problem! You got this : {}".format(e))
-    else:
-        # Interactive mode
-        print("Development...")
 
 if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
