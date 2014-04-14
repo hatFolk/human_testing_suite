@@ -2,26 +2,36 @@
 import sys
 import random
 
-class tests:
+class Tests:
     database = {}
     numQuestions = 0
     def __init__(self, filename):
         """Tests is initialized with a filename containing Questions. This builds the database to test from"""
         file = open(filename, "rU")
-        self.database = tests.makeSuite(self, tests.makeTest(self, file.readlines()))
-        self.numQuestions = len(self.database)
+        qlist = Tests.makeTest(self, file.readlines())
+        print(qlist)
+        self.numQuestions = len(qlist)/3
     
     def makeSuite(self, text):
-        return {text[i].rstrip():[eval(text[i+1]), text[i+2].rstrip()] for i in range(0, len(text), 3)}
+#        return {Question(text[i].rstrip(), eval(text[i+1]), text[i+2].rstrip()))}
+        pass
 
-    def makeTest(self, xs):
+    def makeTest(self, xs): # Fix the logic
         i = 0
         while i < len(xs)-1:
+            print("{} : {}".format(i, xs[i]))
+            print("\t{} : {}".format(i+1, xs[i+1]))
             if xs[i+1] == '\n':
                 xs.pop(i+1)
                 i += 1
             elif xs[i+1][0] == '[':
-                i += 2
+                print("\t{}".format(xs[i+1][-1]))
+                if xs[i+1][-1] == ']':
+                    i += 2
+                else:
+                    i += 1
+                    while xs[i+1][-1] != ']':
+                        xs[i] += xs.pop(i+1)
             else:
                 xs[i] += xs.pop(i+1)
         return xs
@@ -73,16 +83,22 @@ class Question:
         self.question = question
         self.choice = choice
         self.ans = ans
+    def getQuestion(self):
+        return question
+    def getChoice(self):
+        return enumerate(choice)
+    def getAnswer(self):
+        return ans
     def __str__(self):
-        return "Hi"
+        return "Question:\n\t{}\nChoices:\n\t{}\nAnswer\n\t{}".format(self.question, self.choice, self.ans)
 
 def main(filenames):
     """If filenames are passed in, they will be created as tests and then tested one by one"""
     if(filenames):
         for i in filenames:
             try:
-                test_n = tests(i)
-                test_n.startQuestions()
+                newTest = Tests(i)
+                #newTest.startQuestions()
             except (FileNotFoundError, IndexError) as e:
                 print("Problem! You got this : {}".format(e))
 
