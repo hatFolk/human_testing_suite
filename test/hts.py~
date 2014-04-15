@@ -1,37 +1,43 @@
 """A Testing Module that makes random multiple choice questions from a text file."""
 import sys
 import random
-
+# Such OOP. Very wow.
 class Tests:
     database = {}
     numQuestions = 0
     def __init__(self, filename):
-        """Tests is initialized with a filename containing Questions. This builds the database to test from"""
         file = open(filename, "rU")
         qlist = Tests.makeTest(self, file.readlines())
         print(qlist)
-        self.numQuestions = len(qlist)/3
+        Tests.makeSuite(self, qlist)
+        print(self.database)
     
     def makeSuite(self, text):
-#        return {Question(text[i].rstrip(), eval(text[i+1]), text[i+2].rstrip()))}
-        pass
-
-    def makeTest(self, xs): # Fix the logic
+        """Takes a list of strings and creates a database of Question objects from it. Assumes that the first
+        element of the multiple choice is the answer.
+        Precondition: That the list is properly formatted."""
         i = 0
-        while i < len(xs)-1:
-            print("{} : {}".format(i, xs[i]))
-            print("\t{} : {}".format(i+1, xs[i+1]))
+        while i < len(text):
+            self.database[self.numQuestions] = Question(text[i].rstrip(), eval(text[i+1]), eval(text[i+1])[0])
+            self.numQuestions += 1 
+            i += 2
+        
+    def makeTest(self, xs): # Fix the logic. Make simpler?
+        """Takes a list of strings and fixes them so the same question is in the same string, the same
+        answers are in the same string, etc. """
+        i = 0
+        while i < len(xs)-1: # Instead of making a list 
             if xs[i+1] == '\n':
                 xs.pop(i+1)
                 i += 1
             elif xs[i+1][0] == '[':
-                print("\t{}".format(xs[i+1][-1]))
-                if xs[i+1][-1] == ']':
+                if xs[i+1][-2] == ']':
                     i += 2
                 else:
                     i += 1
-                    while xs[i+1][-1] != ']':
+                    while xs[i+1]=='\n' or xs[i+1][-2] != ']':
                         xs[i] += xs.pop(i+1)
+                    xs[i] += xs.pop(i+1)
             else:
                 xs[i] += xs.pop(i+1)
         return xs
@@ -71,8 +77,8 @@ class Tests:
 
     def __str__(self):
         str = ""
-        for k, v in self.dict.items():
-            str += "Question:\n{}\n\tChoices:\n\t{}\n\tAnswer: {}\n".format(k, v[0], v[1])
+        for k, v in self.database.items():
+            str += "Question {}:\n{}".format(k, v)
         return str
 
 class Question:
@@ -89,6 +95,11 @@ class Question:
         return enumerate(choice)
     def getAnswer(self):
         return ans
+    def askQuestion(self):
+        print(getQuestion(self))
+        multChoice = getChoice(self)
+        for i,j in multChoice:
+            print("{}.\n{}".format(i, j))
     def __str__(self):
         return "Question:\n\t{}\nChoices:\n\t{}\nAnswer\n\t{}".format(self.question, self.choice, self.ans)
 
@@ -98,8 +109,12 @@ def main(filenames):
         for i in filenames:
             try:
                 newTest = Tests(i)
+                print(newTest)
                 #newTest.startQuestions()
             except (FileNotFoundError, IndexError) as e:
                 print("Problem! You got this : {}".format(e))
+    else:
+        # Interactive mode
+        print("Development...")
 
 if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...

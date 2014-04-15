@@ -7,7 +7,9 @@ class Tests:
     numQuestions = 0
     def __init__(self, filename):
         file = open(filename, "rU")
-        qlist = Tests.makeTest(self, file.readlines())
+        qlist = file.readlines()
+        print(qlist)
+        qlist = Tests.makeTest(self, qlist)
         print(qlist)
         Tests.makeSuite(self, qlist)
         print(self.database)
@@ -18,30 +20,23 @@ class Tests:
         Precondition: That the list is properly formatted."""
         i = 0
         while i < len(text):
-            self.database[self.numQuestions] = Question(text[i].rstrip(), eval(text[i+1]), eval(text[i+1])[0])
+            self.database[self.numQuestions] = Question(text[i].rstrip(), text[i+1])
             self.numQuestions += 1 
             i += 2
         
     def makeTest(self, xs): # Fix the logic. Make simpler?
-        """Takes a list of strings and fixes them so the same question is in the same string, the same
-        answers are in the same string, etc. """
         i = 0
-        while i < len(xs)-1: # Instead of making a list 
-            if xs[i+1] == '\n':
-                xs.pop(i+1)
+        question = True
+        while i < len(xs):
+            while(question):
+                if xs[i+1] == '\n':
+                    if xs[i+2]
+                    question = not question
+                elif xs[i+1] == '\n':
+                    pass
                 i += 1
-            elif xs[i+1][0] == '[':
-                if xs[i+1][-2] == ']':
-                    i += 2
-                else:
-                    i += 1
-                    while xs[i+1]=='\n' or xs[i+1][-2] != ']':
-                        xs[i] += xs.pop(i+1)
-                    xs[i] += xs.pop(i+1)
-            else:
-                xs[i] += xs.pop(i+1)
-        return xs
-
+            i += 1
+                    
     def getDatabase(self):
         return self.database
 
@@ -82,24 +77,25 @@ class Tests:
         return str
 
 class Question:
+    """Question object assumes that the first multiple choice answer is the correct answer """
     question = ""
     choice = []
     ans = ""
-    def __init__(self, question, choice, ans):
+    def __init__(self, question, choice): # Assumes the answer is the first value of choice
         self.question = question
         self.choice = choice
-        self.ans = ans
+        self.ans = choice[0]
     def getQuestion(self):
         return question
-    def getChoice(self):
-        return enumerate(choice)
+    def getChoice(self): # Randomizes choices and assigns a numerical for each.
+        return {k+1:v for k, v in enumerate(random.shuffle(choice))}
     def getAnswer(self):
         return ans
     def askQuestion(self):
         print(getQuestion(self))
         multChoice = getChoice(self)
-        for i,j in multChoice:
-            print("{}.\n{}".format(i, j))
+        for i in list(multChoice.keys()).sort():
+            print("{}.\n{}".format(i, multChoice[i]))
     def __str__(self):
         return "Question:\n\t{}\nChoices:\n\t{}\nAnswer\n\t{}".format(self.question, self.choice, self.ans)
 
@@ -113,8 +109,5 @@ def main(filenames):
                 #newTest.startQuestions()
             except (FileNotFoundError, IndexError) as e:
                 print("Problem! You got this : {}".format(e))
-    else:
-        # Interactive mode
-        print("Development...")
 
 if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
