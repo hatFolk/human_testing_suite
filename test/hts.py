@@ -9,13 +9,19 @@ class Tests:
         """Tests is initialized with a filename containing Questions. This builds the database to test from"""
         file = open(filename, "rU")
         qlist = Tests.makeTest(self, file.readlines())
-        Tests.makeSuite(self, qlist)
+        for i in range(len(qlist)):
+            print("{} : {}".format(i, qlist[i]))
+        self.database = Tests.makeSuite(self, qlist)
         print(self.database)
     
     def makeSuite(self, text):
         i = 0
         while i < len(text):
-            self.database[self.numQuestions] = Question(text[i].rstrip(), eval(text[i+2]), text[i+2].rstrip())
+            print(i)
+            print(text[i].rstrip())
+            print(eval(text[i+1]))
+            print(eval(text[i+1])[int(text[i+2])])
+            self.database[self.numQuestions] = Question(text[i].rstrip(), eval(text[i+1]), eval(text[i+1])[int(text[i+2])])
             self.numQuestions += 1
             i += 3
 
@@ -30,7 +36,7 @@ class Tests:
                     i += 2
                 else:
                     i += 1
-                    while xs[i+1][-2] != ']':
+                    while xs[i+1]=='\n' or xs[i+1][-2] != ']':
                         xs[i] += xs.pop(i+1)
             else:
                 xs[i] += xs.pop(i+1)
@@ -93,7 +99,7 @@ class Question:
         print(getQuestion(self))
         multChoice = getChoice(self)
         for i,j in multChoice:
-            print("{}.\n{}".format(i, j)
+            print("{}.\n{}".format(i, j))
     def __str__(self):
         return "Question:\n\t{}\nChoices:\n\t{}\nAnswer\n\t{}".format(self.question, self.choice, self.ans)
 
