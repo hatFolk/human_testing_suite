@@ -6,28 +6,27 @@ class Tests:
     database = {}
     numQuestions = 0
     def __init__(self, filename):
-        """Tests is initialized with a filename containing Questions. This builds the database to test from"""
         file = open(filename, "rU")
         qlist = Tests.makeTest(self, file.readlines())
-        for i in range(len(qlist)):
-            print("{} : {}".format(i, qlist[i]))
-        self.database = Tests.makeSuite(self, qlist)
+        print(qlist)
+        Tests.makeSuite(self, qlist)
         print(self.database)
     
     def makeSuite(self, text):
+        """Takes a list of strings and creates a database of Question objects from it. Assumes that the first
+        element of the multiple choice is the answer.
+        Precondition: That the list is properly formatted."""
         i = 0
         while i < len(text):
-            print(i)
-            print(text[i].rstrip())
-            print(eval(text[i+1]))
-            print(eval(text[i+1])[int(text[i+2])])
-            self.database[self.numQuestions] = Question(text[i].rstrip(), eval(text[i+1]), eval(text[i+1])[int(text[i+2])])
-            self.numQuestions += 1
-            i += 3
-
+            self.database[self.numQuestions] = Question(text[i].rstrip(), eval(text[i+1]), eval(text[i+1])[0])
+            self.numQuestions += 1 
+            i += 2
+        
     def makeTest(self, xs): # Fix the logic. Make simpler?
+        """Takes a list of strings and fixes them so the same question is in the same string, the same
+        answers are in the same string, etc. """
         i = 0
-        while i < len(xs)-1:
+        while i < len(xs)-1: # Instead of making a list 
             if xs[i+1] == '\n':
                 xs.pop(i+1)
                 i += 1
@@ -38,6 +37,7 @@ class Tests:
                     i += 1
                     while xs[i+1]=='\n' or xs[i+1][-2] != ']':
                         xs[i] += xs.pop(i+1)
+                    xs[i] += xs.pop(i+1)
             else:
                 xs[i] += xs.pop(i+1)
         return xs
@@ -77,8 +77,8 @@ class Tests:
 
     def __str__(self):
         str = ""
-        for k, v in self.dict.items():
-            str += "Question:\n{}\n\tChoices:\n\t{}\n\tAnswer: {}\n".format(k, v[0], v[1])
+        for k, v in self.database.items():
+            str += "Question {}:\n{}".format(k, v)
         return str
 
 class Question:
@@ -109,6 +109,7 @@ def main(filenames):
         for i in filenames:
             try:
                 newTest = Tests(i)
+                print(newTest)
                 #newTest.startQuestions()
             except (FileNotFoundError, IndexError) as e:
                 print("Problem! You got this : {}".format(e))

@@ -1,12 +1,10 @@
 Who made python?
 ["Guido Van Rossum", "Darth Vader", "Donald Knuth", "Ruffian"]
-0
 
 What does this code do?
 def main():
 	print("Hello")
 ["Hello", "hello", "hello?"]
-0
 
 This is a test for multiline answers. Answer is 1.
 ["""Why is programming fun? What delights may its practitioner expect as his reward?
@@ -21,4 +19,3 @@ Finally, there is the delight of working in such a tractable medium. The program
 """Yet, the program construct, unlike the poet's words, is real in the sense that in moves and works, producing visible outputs seperate from the construct itself. It prints results, draws pictures, produces sounds, moves arms. The magic of myth and legend has come true in our time. One types the correct incantation on the keyboard, and a display screen comes to life, showing things that never were nor could be.
 
 Programming is fun because it gratifies creative longings built deep within us and delights sensibilities we have in common with all men."""]
-1
