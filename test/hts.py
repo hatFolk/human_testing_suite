@@ -7,13 +7,11 @@ class Tests:
     numQuestions = 0
     def __init__(self, filename):
         file = open(filename, "rU")
-        qlist = file.readlines()
-        print(qlist)
+        qlist = file.readlines() # Consider redoing this in readlin()
         qlist = Tests.makeTest(self, qlist)
-        print(qlist)
-        Tests.makeSuite(self, qlist)
-        print(self.database)
-    
+        for i in range(len(qlist)):
+            print("{} : {}".format(i, qlist[i]))
+        
     def makeSuite(self, text):
         """Takes a list of strings and creates a database of Question objects from it. Assumes that the first
         element of the multiple choice is the answer.
@@ -26,17 +24,17 @@ class Tests:
         
     def makeTest(self, xs): # Fix the logic. Make simpler?
         i = 0
-        question = True
-        while i < len(xs):
-            while(question):
-                if xs[i+1] == '\n':
-                    if xs[i+2]
-                    question = not question
-                elif xs[i+1] == '\n':
-                    pass
+        while i < len(xs)-2:
+            if xs[i+1] == xs[i+2] == '\n': # Questions and answer spaces are delimited by two \n
+                del xs[i+1] # Gets rid of the first one
+                del xs[i+1]
                 i += 1
-            i += 1
-                    
+            else:
+                xs[i] += xs.pop(i+1)
+        xs[i] += xs.pop(i+1)
+        while 
+        return xs
+            
     def getDatabase(self):
         return self.database
 
@@ -66,7 +64,11 @@ class Tests:
                 questions.pop(ctr)        
         print("points = {}; x = {} ;".format(points, x)) 
         print("That's all the questions! Your Percent Accuracy: {}".format(points/x))
-
+    def __iter__(self):
+        x = list(range(self.numQuestions))
+        for i in random.shuffle(x):
+            yield self.database[i].askQuestion()
+            
     def __len__(self):
         return self.numQuestions
 
