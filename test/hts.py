@@ -7,7 +7,7 @@ class Tests:
     numQuestions = 0
     def __init__(self, filename):
         file = open(filename, "rU")
-        qlist = file.read() # Consider redoing this in readline()
+        qlist = file.read().split('\n\n\n')
         qlist = Tests.makeTest(self, qlist)
         for i in range(len(qlist)):
             print("{} : {}".format(i, qlist[i]))
@@ -24,11 +24,12 @@ class Tests:
             i += 2
         
     def makeTest(self, text): # Fix the logic. Make simpler?
-        qlist = text.split('\n\n\n')
-        qlist = [k.split('***') for k in qlist]
-        qlist = map(lambda y : filter(lambda x : x != '', y), qlist)
-        
-        return qlist
+        i =0 
+        while i < len(text):
+            if text[i] == '':
+                del text[i]
+            if type(text[i]) == type([]):
+                
             
     def getDatabase(self):
         return self.database
