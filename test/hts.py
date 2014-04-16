@@ -7,10 +7,11 @@ class Tests:
     numQuestions = 0
     def __init__(self, filename):
         file = open(filename, "rU")
-        qlist = file.readlines() # Consider redoing this in readlin()
+        qlist = file.read() # Consider redoing this in readline()
         qlist = Tests.makeTest(self, qlist)
         for i in range(len(qlist)):
             print("{} : {}".format(i, qlist[i]))
+        file.close()
         
     def makeSuite(self, text):
         """Takes a list of strings and creates a database of Question objects from it. Assumes that the first
@@ -22,18 +23,12 @@ class Tests:
             self.numQuestions += 1 
             i += 2
         
-    def makeTest(self, xs): # Fix the logic. Make simpler?
-        i = 0
-        while i < len(xs)-2:
-            if xs[i+1] == xs[i+2] == '\n': # Questions and answer spaces are delimited by two \n
-                del xs[i+1] # Gets rid of the first one
-                del xs[i+1]
-                i += 1
-            else:
-                xs[i] += xs.pop(i+1)
-        xs[i] += xs.pop(i+1)
-        while 
-        return xs
+    def makeTest(self, text): # Fix the logic. Make simpler?
+        qlist = text.split('\n\n\n')
+        qlist = [k.split('***') for k in qlist]
+        qlist = map(lambda y : filter(lambda x : x != '', y), qlist)
+        
+        return qlist
             
     def getDatabase(self):
         return self.database
