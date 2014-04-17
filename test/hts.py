@@ -13,15 +13,12 @@ class Tests:
         file.close()
         
     def makeSuite(self, text):
-        """Takes a list of strings and creates a database of Question objects from it. Assumes that the first
-        element of the multiple choice is the answer.
-        Precondition: That the list is properly formatted."""
         i = 0
         while i < len(text):
-            self.database[self.numQuestions] = Question(text[i][0], text[i+1])
             self.numQuestions += 1 
+            self.database[self.numQuestions] = Question(text[i][0], text[i+1])
             i += 2
-            
+
     def makeTest(self, text):
         text = text.split('\n\n\n')
         text = [i.split('***') for i in text if i[0]]
@@ -41,7 +38,6 @@ class Tests:
         return self.database
 
     def askQuestion(question, list):
-        choice = {k:v for k, v in enumerate(list[0])}
         print(question)
         for i in choice.items().sort():
             print("\t{}. {}".format(i[0], i[1]))
@@ -76,16 +72,16 @@ class Question:
         self.question = question
         self.ans = choice[0]
         self.choice = self.getChoice(choice)
-        print(self.choice)
     def getQuestion(self):
         return question
+
     def getChoice(self, mult): # Randomizes choices and assigns a numerical for each.
-        print(mult)
         random.shuffle(mult)
         return {k[0]:k[1] for k in enumerate(mult, 1)}
     
     def getAnswer(self):
         return ans
+
     def askQuestion(self):
         print(getQuestion(self))
         multChoice = getChoice(self)
@@ -94,11 +90,11 @@ class Question:
             
     def __str__(self):
         quest = ""
-        quest += "Question : {}\n".format(self.question)
+        quest += "{}\n\n".format(self.question)
         for i in sorted(self.choice):
             if self.choice[i] == self.ans:
                 quest += "***"
-            quest += "{:0}\t:{:1}\n".format(i)
+            quest += "{}.\n{}\n\n".format(i, self.choice[i])
         return quest
 
 def storeToFile(filename, test):
@@ -107,16 +103,12 @@ def storeToFile(filename, test):
     for i in data.values():
         return
 
-def startTest(test):
-
 def main(filenames):
     """If filenames are passed in, they will be created as tests and then tested one by one"""
     if(filenames):
         for i in filenames:
-            try:
-                newTest = Tests(i)
-                #newTest.startQuestions()
-            except (FileNotFoundError, IndexError) as e:
-                
+            newTest = Tests(i)
+            print(newTest)
+    #newTest.startQuestions()
 
 if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
