@@ -29,7 +29,8 @@ class Tests:
             if text[i] == '':
                 del text[i]
             if type(text[i]) == type([]):
-                
+                print('Hi')
+            return
             
     def getDatabase(self):
         return self.database
@@ -43,7 +44,7 @@ class Tests:
         try:
             print("Correct!" if list[1] == choice[int(ans)] else "Wrong..., the answer was : {}".format(list[1]))
             return list[1] == choice[int(ans)]
-        except (KeyError, ValueError):
+        except (KeyError, ValueError): # Exception handling...
                 print("Invalid answer...")
 
     def startQuestions(self, x = numQuestions):
@@ -97,6 +98,12 @@ class Question:
     def __str__(self):
         return "Question:\n\t{}\nChoices:\n\t{}\nAnswer\n\t{}".format(self.question, self.choice, self.ans)
 
+def storeToFile(filename, test):
+    file = open(test, "w+")
+    data = list(test.getDatabase.values()) # Makes a list of all the question objects stored
+    for i in data.values():
+        return
+
 def main(filenames):
     """If filenames are passed in, they will be created as tests and then tested one by one"""
     if(filenames):
@@ -106,6 +113,6 @@ def main(filenames):
                 print(newTest)
                 #newTest.startQuestions()
             except (FileNotFoundError, IndexError) as e:
-                print("Problem! You got this : {}".format(e))
+                raise Exception("Ran into a problem! : {}".format(e))
 
 if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
