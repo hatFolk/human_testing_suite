@@ -2,7 +2,8 @@
 import sys
 import random
 # Such OOP. Very wow.
-class Tests:
+class Test:
+    """Takes w """
     database = {}
     numQuestions = 0
     def __init__(self, filename):
@@ -15,9 +16,9 @@ class Tests:
     def makeSuite(self, text):
         i = 0
         while i < len(text):
-            self.numQuestions += 1 
             self.database[self.numQuestions] = Question(text[i][0], text[i+1])
-            i += 2
+            self.numQuestions+=1
+            i+=2
 
     def makeTest(self, text):
         text = text.split('\n\n\n')
@@ -37,21 +38,11 @@ class Tests:
     def getDatabase(self):
         return self.database
 
-    def askQuestion(question, list):
-        print(question)
-        for i in choice.items().sort():
-            print("\t{}. {}".format(i[0], i[1]))
-        ans = input("[Pick your number] > ")
-        try:
-            print("Correct!" if list[1] == choice[int(ans)] else "Wrong..., the answer was : {}".format(list[1]))
-            return list[1] == choice[int(ans)]
-        except (KeyError, ValueError): # Exception handling...
-                print("Invalid answer...")
-
     def __iter__(self):
         x = list(range(self.numQuestions))
-        for i in random.shuffle(x):
-            yield self.database[i].askQuestion()
+        random.shuffle(x)
+        for i in x:
+            yield self.database[i]
             
     def __len__(self):
         return self.numQuestions
@@ -71,22 +62,26 @@ class Question:
         random.seed()
         self.question = question
         self.ans = choice[0]
-        self.choice = self.getChoice(choice)
-    def getQuestion(self):
-        return question
+        self.choice = self.generateChoices(choice)
 
-    def getChoice(self, mult): # Randomizes choices and assigns a numerical for each.
+    def generateChoices(self, mult):
+        """Shuffles a list and puts it in a dictionary as a value.
+        The key starts at 1 and ends at the length of the list"""
         random.shuffle(mult)
         return {k[0]:k[1] for k in enumerate(mult, 1)}
     
-    def getAnswer(self):
-        return ans
-
     def askQuestion(self):
-        print(getQuestion(self))
+        """Asks the question. Gets an answer.
+        Returns False if answered correctly. Returns True."""
+        print(self.question)
         multChoice = getChoice(self)
-        for i in list(multChoice.keys()).sort():
+        for i in sorted(multChoice):
             print("{}.\n{}".format(i, multChoice[i]))
+        num = input("[Which number is the answer?] > ")
+        try:
+            return not (self.choice[int(num)] == self.ans)
+        except:
+            return True
             
     def __str__(self):
         quest = ""
@@ -94,21 +89,20 @@ class Question:
         for i in sorted(self.choice):
             if self.choice[i] == self.ans:
                 quest += "***"
-            quest += "{}.\n{}\n\n".format(i, self.choice[i])
+            quest += "Choice {}.\n\n{}\n\n".format(i, self.choice[i])
         return quest
-
-def storeToFile(filename, test):
-    file = open(test, "w+")
-    data = list(test.getDatabase.values()) # Makes a list of all the question objects stored
-    for i in data.values():
-        return
 
 def main(filenames):
     """If filenames are passed in, they will be created as tests and then tested one by one"""
     if(filenames):
         for i in filenames:
-            newTest = Tests(i)
-            print(newTest)
-    #newTest.startQuestions()
+            newTest = Test(i) #Make a Test object
+            answeredWrong = []
+            for j in newTest:
+                if j.askQuestion():
+                    answeredWrong.append(j)
+            print("Please review these questions!")
+            for k in answeredWrong:
+                print(k.question)
 
 if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
