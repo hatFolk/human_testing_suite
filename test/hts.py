@@ -91,6 +91,7 @@ class Question:
         multChoice = getChoice(self)
         for i in list(multChoice.keys()).sort():
             print("{}.\n{}".format(i, multChoice[i]))
+            
     def __str__(self):
         quest = ""
         quest += "Question : {}\n".format(self.question)
