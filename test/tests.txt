@@ -73,7 +73,7 @@ What are literals?
 What is the largest integer in python can generate?
 
 
-***Infinity
+***Infinity (until computer is out of memory)
 ***2^32
 ***2^64
 ***MAX_INT
@@ -94,7 +94,29 @@ How do you represent floating point numbers?
 ***3.14d
 
 
-What do you call putting two strings together and how do you do it?
+What do you call joining strings together and how do you do it?
 
 
-***Concatenation, you add +
+***Concatenation, you do "beginning of string" + "end of string"
+***String Copy, you do strcpy("first string", "second string")
+***String Building, you make a StringBuilder object and use the append method
+***Concatenation, and you do "first string".concat("second string")
+
+
+Which of these will cause the program to crash?
+
+
+***raise Exception
+***
+try:
+	raise Exception
+except:
+	pass
+***
+if True:
+	print("hi")
+else:
+	print(1/0)
+
+
+
