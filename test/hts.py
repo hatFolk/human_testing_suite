@@ -27,7 +27,7 @@ class Test:
                 if text[i][j] == '':
                     del text[i][j]
                 else:
-                    text[i][j] = text[i][j].rstrip()
+                    text[i][j] = text[i][j].rstrip() #Those pesky newlines.
                     j+=1
             i += 1
         return text
@@ -35,11 +35,9 @@ class Test:
     def makeSuite(self, text):
         """Takes a parsed text list and puts it into a Question object database.
         Precondition: text has already been through makeTest"""
-        i = 0
-        while i < len(text):
+        for i in range(0, len(text), 2):
             self.database[self.numQuestions] = Question(text[i][0], text[i+1])
             self.numQuestions+=1
-            i+=2
     
     def __iter__(self):
         """Makes Test iterable after shuffling the questions"""
@@ -47,7 +45,7 @@ class Test:
         random.shuffle(x)
         for i in x:
             yield self.database[i]
-        raise StopIteration
+        raise StopIteration #TIL: To make an __iter__ you need to raise StopIteration
 
     def __len__(self):
         """The length of Tests should be the number of Questions...
@@ -117,5 +115,7 @@ def main(filenames):
             for k in answeredWrong:
                 print("{}.\n    {}\n".format(i, k.question.replace('\n', '\n    ')))
                 i += 1
+    else:
+        print("Usage: python hts.py [filename(s)]")
 
 if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
