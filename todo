@@ -1,3 +1,8 @@
 PyQT
 Question Elimination (Though, could be just written at user's convenience)
 Variable Text Formatting (Allow users to choose text margins
+Modulize the questions into different categories
+	Vocabulary
+	Pythonic Datastructures
+	"Does this work?"
+	Exams to Quizzable

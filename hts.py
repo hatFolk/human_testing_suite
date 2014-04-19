@@ -36,6 +36,7 @@ class Test:
         """Takes a parsed text list and puts it into a Question object database.
         Precondition: text has already been through makeTest"""
         for i in range(0, len(text), 2):
+            print("{}:\n\tQuestion:{}\n\tAnswers:{}".format(self.numQuestions, text[i], text[i+1]))
             self.database[self.numQuestions] = Question(text[i][0], text[i+1])
             self.numQuestions+=1
     
