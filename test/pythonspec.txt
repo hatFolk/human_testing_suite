@@ -1,0 +1,196 @@
+How do you make strings?
+
+
+***'Single Quotes'
+"Double Quotes"
+"""Multiline Strings"""
+***char str[] = "String";
+char* str = 'This is string';
+***new String("String!")
+"String!"
+***set obj-string to "string!"
+display obj-string
+
+
+What is the largest integer in python can generate?
+
+
+***Infinity (until computer is out of memory)
+***2^32
+***2^64
+***MAX_INT
+
+
+True or False: It is possible to have imaginary numbers in python?
+
+
+***True
+***False
+
+
+How do you represent floating point numbers?
+
+
+***3.14
+***3.14f
+***3.14lf
+***3.14d
+
+
+What do you call joining strings together and how do you do it?
+
+
+***Concatenation, you do "beginning of string" + "end of string"
+***String Copy, you do strcpy("first string", "second string")
+***String Building, you make a StringBuilder object and use the append method
+***Concatenation, and you do "first string".concat("second string")
+
+
+Which of these will cause the program to crash?
+
+
+***raise Exception
+***
+try:
+	raise Exception
+except:
+	pass
+***
+if True:
+	print("hi")
+else:
+	print(1/0)
+
+
+When you do concatenation, you always get a copy of the original sequence.
+Always.
+
+
+***True
+***False
+
+
+Which of these are expressions?
+
+
+***x == 5
+***x = 5
+***x += 5
+***for x in range(5):
+    print(x)
+
+
+Assume we have a list called xs with values [1,2,3,4]. Which of these is NOT a
+way to update xs so it becomes [4, 2, 3, 4]?
+
+
+***xs = [4, 2, 3, 4]
+***xs[:] = [4, 2, 3, 4]
+***xs[0] = 4
+***xs[0] = xs[3]
+
+
+What is the proper range call that can generate the following list?
+[0, 2, 4, 6, 8, 10]
+
+
+***range(0, 11, 2)
+***range(11, 2)
+***range(12, -1, -2)
+
+
+You have an xs = [1, 2, ("rubiks", "cube")].
+What is the type of the following:
+    xs[0:3]
+
+
+***List
+***Int
+***Float
+***Set
+
+
+You have an xs = [1, 2, ("rubiks", "cube")].
+What is the type of the following:
+    xs[0]
+
+
+***Int
+***Tuple
+***List
+***size_t
+
+
+You have an xs = [1, 2, ("rubiks", "cube")].
+What is the type of the following:
+    xs[len(xs[:][-1][:])][:]
+
+
+***Tuple
+***String
+***List
+***Int
+
+
+What happens when you do print("4 = " + 4)?
+
+
+***Exception
+***it prints "4 = 4"
+***it prints "8"
+***it prints "4"
+
+
+Which of these are proper ways of importing math and using the sqrt function.
+
+
+***import math; math.sqrt()
+-or-
+from math import sqrt; sqrt()
+***import math; sqrt()
+-or-
+from math import sqrt; sqrt()
+***from sqrt import math; math.sqrt()
+-or-
+import sqrt; sqrt()
+
+
+What does this do?
+x, y, z = 1, 2, "hello"
+
+
+***Assigns x to 1, y to 2, and z to "hello"
+***Exception!
+***Assigns x to (1, 2, "hello"), y to (2, "hello") and z to ("hello",)
+
+
+True or False: Python obeys PEMDAS
+
+
+***True
+***False
+
+
+True or False: Strings and Tuples are immutable.
+
+
+***True
+***False
+
+
+How do you make a tuple with the value of "cat" in it?
+
+
+***("cat",)
+***("cat")
+***"cat"
+***("cat", ())
+
+
+How do you use set membership to check if 2 is a member of xs?
+
+
+***2 in xs
+***xs in 2
+***2 == xs
+***xs.contain(2)

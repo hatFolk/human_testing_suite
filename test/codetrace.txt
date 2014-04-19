@@ -1,0 +1,72 @@
+Consider the following definitions:
+
+    tup = ((), [], ("bob", 90), (23, "duck"))
+    xs = [1, 2, (3,), [7, 8, 9], 10+11, 12, "yes", 14, "15"]
+    string = "32 doggies"
+
+What is the value of the following?:
+    xs[4]
+
+
+***21
+***[7, 8, 9]
+***7
+***10
+
+
+Consider the following definitions:
+
+    tup = ((), [], ("bob", 90), (23, "duck"))
+    xs = [1, 2, (3,), [7, 8, 9], 10+11, 12, "yes", 14, "15"]
+    string = "32 doggies"
+
+What is the value of the following?:
+    tup[1:3][1][-1]
+
+
+***90
+***("bob", 90)
+***"bob"
+***23
+***"duck"
+
+
+Consider the following definitions:
+
+    tup = ((), [], ("bob", 90), (23, "duck"))
+    xs = [1, 2, (3,), [7, 8, 9], 10+11, 12, "yes", 14, "15"]
+    string = "32 doggies"
+
+What is the value of the following?:
+    tup[xs[1]][0]
+
+
+***"bob"
+***Exception!
+***[2]
+***2
+***("bob", 90)
+
+
+Assume that the following happened:
+	xs = [1, 2, 3]
+	ys = xs
+	xs[0] = 3
+	print(ys == xs)
+	print(xs)
+	print(ys)
+What is the ouput?
+
+
+***True
+[3, 2, 3]
+[3, 2, 3]
+***False
+[3, 2, 3]
+[1, 2, 3]
+***True
+[1, 2, 3]
+[1, 2, 3]
+***False
+[1, 2, 3]
+[3, 2, 3]
