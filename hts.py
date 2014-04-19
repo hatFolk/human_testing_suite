@@ -36,7 +36,6 @@ class Test:
         """Takes a parsed text list and puts it into a Question object database.
         Precondition: text has already been through makeTest"""
         for i in range(0, len(text), 2):
-            print("{}:\n\tQuestion:{}\n\tAnswers:{}".format(self.numQuestions, text[i], text[i+1]))
             self.database[self.numQuestions] = Question(text[i][0], text[i+1])
             self.numQuestions+=1
     
@@ -99,7 +98,7 @@ class Question:
         for i in sorted(self.choice):
             if self.choice[i] == self.ans:
                 quest += "***"
-            quest += "Choice {}.\n\n{}\n\n".format(i, self.choice[i])
+            quest += "{}.\n\n\t{}\n\n".format(i, self.choice[i])
         return quest
 
 def main(filenames):
@@ -107,18 +106,24 @@ def main(filenames):
     if(filenames):
         for i in filenames:
             newTest = Test(i) #Make a Test object
+            print("{} Questions Created!".format(len(newTest)))
             ctr = int(input("How many questions do you want to be asked? > "))
+            x = ctr
             answeredWrong = []
             for j in newTest:
                 if ctr == 0:
                     break
-                j.askQuestion()
+                print("-"*10)
+                if j.askQuestion():
+                    answeredWrong.append(j)
                 ctr -= 1
-            print("Please review these questions!:\n")
-            i = 1
-            for k in answeredWrong:
-                print("{}.\n    {}\n".format(i, k.question.replace('\n', '\n    ')))
-                i += 1
+            if len(answeredWrong) > 0:
+                print("Please review these questions!:\n")
+                i = 1
+                for k in answeredWrong:
+                    print("{}.\n    {}\n".format(i, k.__str__().replace('\n', '\n    ')))
+                    i += 1
+                print("YOU GOT {} / {} ! {:.2f}%!".format(x - len(answeredWrong), x, (x- len(answeredWrong))/x))
     else:
         print("Usage: python hts.py [filename(s)]")
 
