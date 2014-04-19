@@ -106,10 +106,13 @@ def main(filenames):
     if(filenames):
         for i in filenames:
             newTest = Test(i) #Make a Test object
+            ctr = int(input("How many questions do you want to be asked? > "))
             answeredWrong = []
             for j in newTest:
-                if j.askQuestion():
-                    answeredWrong.append(j)
+                if ctr == 0:
+                    break
+                j.askQuestion()
+                ctr -= 1
             print("Please review these questions!:\n")
             i = 1
             for k in answeredWrong:
