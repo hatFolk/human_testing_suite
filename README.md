@@ -14,8 +14,3 @@ How to use it:
     The questions are randomized as are the choices.
 
     Run using "python3 hts.py <filenames>"
-
-To Do:
-
-Auto-format questions to about 80 characters.
-Question elimination
