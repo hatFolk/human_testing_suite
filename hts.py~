@@ -83,7 +83,8 @@ class Question:
         print(self.question)
         for i in sorted(self.choice):
             print("{}.\n    {}".format(i, self.choice[i].replace('\n','\n    ')))
-        num = input("\n[Choose] > ")
+        print("")
+        num = input("[Which number is the answer?] > ")
         print("")
         try:
             return not (self.choice[int(num)] == self.ans)
@@ -116,7 +117,7 @@ def main(filenames):
                 if j.askQuestion():
                     answeredWrong.append(j)
                 ctr -= 1
-            if len(answeredWrong):
+            if len(answeredWrong) > 0:
                 print("Please review these questions!:\n")
                 i = 1
                 for k in answeredWrong:
