@@ -39,7 +39,7 @@ class Test:
         Precondition: text has already been through makeTest
         AND text[i+1][0] is the CORRECT answer to the question"""
         for i in range(0, len(text), 2): #Build the database based off of what number its on.
-            self.database[self.numQuestions] = Question(text[i][0], text[i+1])
+            self.database[self.numQuestions] = Question(text[i][0], text[i+1]) #i is the question, i+1 is the ans
             self.numQuestions+=1
     
     def __iter__(self):
@@ -49,7 +49,7 @@ class Test:
         random.shuffle(x) # Is there a way to 'toggle' the randomness?
         for i in x:
             yield self.database[i]
-        raise StopIteration #TIL: To make an __iter__ you need to raise StopIteration
+        raise StopIteration #TIL: To make an __iter__ you should raise this
 
     def __len__(self):
         """The length of Tests should be the number of Questions...
@@ -76,27 +76,26 @@ class Question:
         random.seed()
         self.question = question
         self.ans = choice[0]
-        self.choice = self.generateChoices(choice)
+        self.choice = self.shuffleChoices(choice)
 
-    def generateChoices(self, mult):
+    def shuffleChoices(self, mult):
         """Shuffles a list and puts it in a dictionary as a value.
         The key starts at 1 and ends at the length of the list"""
         random.shuffle(mult)
-        return {k[0]:k[1] for k in enumerate(mult, 1)}
+        return {k[0]:k[1] for k in enumerate(mult, 1)} 
     
     def askQuestion(self):
         """Asks the question. Gets an answer.
         Returns False if answered correctly. Returns True."""
-        print(self.question)
+        print(self.question) #Prints the question
         for i in sorted(self.choice):
-            print("{}.\n    {}".format(i, self.choice[i].replace('\n','\n    ')))
-        print("")
-        num = input("[Which number is the answer?] > ")
+            print("{}.\n    {}".format(i, self.choice[i].replace('\n','\n    '))) # Prints the Answers nicely
+        num = input("\n[Which number is the answer?] > ")
         print("")
         try:
-            return not (self.choice[int(num)] == self.ans)
+            return (self.choice[int(num)] == self.ans) #True if you picked the right answer
         except:
-            return True
+            return False #False if you picked otherwise
             
     def __str__(self):
         """Mainly for Debug and telling people that they did something wrong."""
@@ -111,21 +110,22 @@ class Question:
     def __repr__(self):
         return "Question Object @ {}".format(id(self))
 
-def main(filenames):
+def takeExam(filenames):
     """If filenames are passed in, they will be created as tests and then tested one by one"""
+    """Acts as main function when hts.py used as program, not module"""
     if(filenames):
         for i in filenames:
             newTest = Test(i) #Make a Test object
             print("{} Questions Created!".format(len(newTest)))
             ctr = int(input("How many questions do you want to be asked? > "))
-            x = ctr
+            x = ctr # To keep track of the original number of questions desired
             answeredWrong = []
             for j in newTest:
                 if ctr == 0:
                     break
                 print("-"*10)
-                if j.askQuestion():
-                    answeredWrong.append(j)
+                if not j.askQuestion(): #If the answer was wrong
+                    answeredWrong.append(j) #Append the answer to a wrong answer list
                 ctr -= 1
             print("Test Done! How did you do?\n\n")
             if len(answeredWrong) > 0:
@@ -140,4 +140,4 @@ def main(filenames):
     else:
         print("Usage: python hts.py [filename(s)]")
 
-if __name__ == "__main__" : main(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
+if __name__ == "__main__" : takeExam(sys.argv[1:]) # element 0 only interesting if you want the name of your file...
