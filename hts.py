@@ -2,6 +2,7 @@
 import sys
 import random
 # Such OOP. Very wow.
+
 class Test:
     """Takes a file, breaks it up into Question and
     Multiple Choices and make Question objects"""
@@ -18,31 +19,34 @@ class Test:
         
     def makeTest(self, text):
         """Take a block of text from a file and makes it usable for makeSuite."""
-        text = text.split('\n\n\n')
-        text = [i.split('***') for i in text]
+        text = text.split('\n\n\n') # Splits the large text file everytime there's 3 \n in a row
+        text = [i.split('***') for i in text] #Splits each element with the multiple choice to be a list of lists
+        # ^ That's probably going to be every other line. But I have it going through all of them.
         i = 0
-        while i < len(text):
+        while i < len(text): # I wanted to modify the list above in place. Try and save a little memory...
             j = 0
             while j < len(text[i]): # You could probably do this with a combination of filter and map...
-                if text[i][j] == '':
+                if text[i][j] == '': # Had an issue with "random" '' elements
                     del text[i][j]
                 else:
-                    text[i][j] = text[i][j].rstrip() #Those pesky newlines.
+                    text[i][j] = text[i][j].rstrip() #Those pesky extra newlines
                     j+=1
             i += 1
-        return text
+        return text # Return the list
 
     def makeSuite(self, text):
         """Takes a parsed text list and puts it into a Question object database.
-        Precondition: text has already been through makeTest"""
-        for i in range(0, len(text), 2):
+        Precondition: text has already been through makeTest
+        AND text[i+1][0] is the CORRECT answer to the question"""
+        for i in range(0, len(text), 2): #Build the database based off of what number its on.
             self.database[self.numQuestions] = Question(text[i][0], text[i+1])
             self.numQuestions+=1
     
     def __iter__(self):
-        """Makes Test iterable after shuffling the questions"""
-        x = list(range(1, self.numQuestions))
-        random.shuffle(x)
+        """Makes Test iterable after shuffling the questions.
+        Assumes that the user wanted the questions randomly."""
+        x = list(range(self.numQuestions))
+        random.shuffle(x) # Is there a way to 'toggle' the randomness?
         for i in x:
             yield self.database[i]
         raise StopIteration #TIL: To make an __iter__ you need to raise StopIteration
@@ -123,6 +127,7 @@ def main(filenames):
                 if j.askQuestion():
                     answeredWrong.append(j)
                 ctr -= 1
+            print("Test Done! How did you do?\n\n")
             if len(answeredWrong) > 0:
                 print("Please review these questions!:\n")
                 i = 1
