@@ -59,6 +59,9 @@ class Test:
             str += "Question {}:\n{}".format(k, v)
         return str
 
+    def __repr__(self):
+        return "Test Object @ {} with {} questions".format(id(self), self.numQuestions)
+
 class Question:
     """Question object assumes that the first multiple choice answer is the correct answer """
     question = ""
@@ -101,6 +104,9 @@ class Question:
             quest += "{}.\n\n\t{}\n\n".format(i, self.choice[i])
         return quest
 
+    def __repr__(self):
+        return "Question Object @ {}".format(id(self))
+
 def main(filenames):
     """If filenames are passed in, they will be created as tests and then tested one by one"""
     if(filenames):
@@ -124,6 +130,8 @@ def main(filenames):
                     print("{}.\n    {}\n".format(i, k.__str__().replace('\n', '\n    ')))
                     i += 1
                 print("YOU GOT {} / {} ! {:.2f}%!".format(x - len(answeredWrong), x, (x- len(answeredWrong))/x))
+            else:
+                print("YOU WIN ALL OF THE QUESTIONS! YAY!")
     else:
         print("Usage: python hts.py [filename(s)]")
 
