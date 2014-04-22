@@ -13,6 +13,7 @@ How to make your own Test:
 	`***`
 
 4a. See example.txt for other things you can theoretically do.
+
 5. The first multiple choice you write is considered the correct answer. The rest are phonies to make your testing a little harder.
 6. Make phonies
 7. If done making questions and answers, Save and Quit. Else, go to step 2. Make sure there are two empty lines between your answers and your questions...
