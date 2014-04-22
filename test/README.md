@@ -12,7 +12,7 @@ How to make your own Test:
 
 	`***`
 
-4a. See example.txt for other things you can theoretically do.
+a. See example.txt for other things you can theoretically do.
 
 5. The first multiple choice you write is considered the correct answer. The rest are phonies to make your testing a little harder.
 6. Make phonies
