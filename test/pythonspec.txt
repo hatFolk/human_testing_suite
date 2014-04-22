@@ -194,3 +194,13 @@ How do you use set membership to check if 2 is a member of xs?
 ***xs in 2
 ***2 == xs
 ***xs.contain(2)
+
+
+What is the result of this?
+	x = y = z = 1
+
+
+***x, y, and z equal 1
+***z = 1, but x and y are None
+***Exception
+***1, z, and y are equal to x
