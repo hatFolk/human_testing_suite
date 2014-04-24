@@ -89,13 +89,8 @@ class Question:
         Returns False if answered correctly. Returns True."""
         print(self.question) #Prints the question
         for i in sorted(self.choice):
-<<<<<<< HEAD
-            print("{}.\n    {}".format(i, self.choice[i].replace('\n','\n    ')))
-        num = input("\n[Choose] > ")
-=======
             print("{}.\n    {}".format(i, self.choice[i].replace('\n','\n    '))) # Prints the Answers nicely
-        num = input("\n[Which number is the answer?] > ")
->>>>>>> 6e5c39bd262212e8afa855c253516ec17e7e7665
+        num = input("\n[Choice?] > ")
         print("")
         try:
             return (self.choice[int(num)] == self.ans) #True if you picked the right answer
@@ -132,12 +127,7 @@ def takeExam(filenames):
                 if not j.askQuestion(): #If the answer was wrong
                     answeredWrong.append(j) #Append the answer to a wrong answer list
                 ctr -= 1
-<<<<<<< HEAD
-            if len(answeredWrong):
-=======
-            print("Test Done! How did you do?\n\n")
             if len(answeredWrong) > 0:
->>>>>>> 6e5c39bd262212e8afa855c253516ec17e7e7665
                 print("Please review these questions!:\n")
                 i = 1
                 for k in answeredWrong:
