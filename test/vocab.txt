@@ -167,3 +167,85 @@ What is mutability?
 ***The property of being changeable.
 ***The property of being unchanging
 ***It doesn't exist
+
+
+What is the difference between ints and floats?
+
+
+***Ints are base 10 numbers. They are Integers.
+However, floats are an approximation of Real Numbers. They are Reals.
+***Ints are base 5 numbers. They are integers.
+However, floats are an approximation of real decimals. They are decimals.
+***Floats are base 16 numbers. They are floats.
+However, ints are an approximation of real numbers. They are integers.
+***Ints and floats are the same.
+***Ints int and Floats float.
+
+
+What are expressions?
+
+
+***Representation of values that can be reduced down to some value.
+It can include lots of things, so long as it reduces to a value.
+***These are instructions to a computer to do something.
+***It's a turn of speech that people use to express themselves.
+***It's a turn of speech that computers use to express themselves.
+
+
+What does the following do in an interpreter?
+	>>> x = 5
+	>>> x + 4
+
+
+***x gains the value 5. A command is then issued to show x + 4.
+The result is 9. x does not store the value 9.
+***x gains the value 5. A command is then ordered to assign x to x + 4.
+x is now 9.
+***Exception. x is not defined
+***Exception. x is not used
+***x = 9
+
+
+Which of the following is considered sequential program flow?
+
+
+***x = 5
+y = 5
+x += 5
+x /= 2
+y %= 3
+print(x, y)
+# Because all lines have the same indentation level
+***x = 5
+if(x < 5):
+	print(x)
+else:
+	print("hi")
+# Because different blocks of code run based on True or False
+***x = 5
+while x < 10:
+	print(x)
+	x+= 1
+#Because it repeats the same block of code until the condition is met
+
+
+Which of the following is considered selection statement-based flow?
+
+
+***x = input()
+if x == "h":
+	print(x)
+elif x == "e":
+	print("Meep")
+else:
+	print("No")
+
+
+What's the difference between an indefinite and a definite loop?
+
+
+***A definite loop does a task a set number of times.
+An indefinite loop checks a condition and could go on forever.
+***An indefinite loop does not check a condition and goes on forever.
+A definite loop checks a condition a set unmber of times
+***A definition loop does a loop-di-loop
