@@ -8,9 +8,12 @@ class Test:
     Multiple Choices and make Question objects"""
     database = {}
     numQuestions = 0
-    def __init__(self, filename):
+    rndQ = True #Randomize questions?
+    rndA = True #Randomize answers?
+    def __init__(self, filename, rndQ=True, rndA=True):
         """Constructor for Tests.
         Takes a file and parses it for Questions"""
+        self.rng = rng
         file = open(filename, "rU")
         qlist = file.read()
         qlist = self.makeTest(qlist)
@@ -39,14 +42,14 @@ class Test:
         Precondition: text has already been through makeTest
         AND text[i+1][0] is the CORRECT answer to the question"""
         for i in range(0, len(text), 2): #Build the database based off of what number its on.
-            self.database[self.numQuestions] = Question(text[i][0], text[i+1]) #i is the question, i+1 is the ans
+            self.database[self.numQuestions] = Question(text[i][0], text[i+1], self.randA) #i is the question, i+1 is the ans
             self.numQuestions+=1
     
     def __iter__(self):
         """Makes Test iterable after shuffling the questions.
         Assumes that the user wanted the questions randomly."""
         x = list(range(self.numQuestions))
-        random.shuffle(x) # Is there a way to 'toggle' the randomness?
+        if self.randQ : random.shuffle(x) # Is there a way to 'toggle' the randomness?
         for i in x:
             yield self.database[i]
         raise StopIteration #TIL: To make an __iter__ you should raise this
@@ -71,17 +74,16 @@ class Question:
     question = ""
     choice = {}
     ans = ""
-    def __init__(self, question, choice): # Assumes the answer is the first value of choice
+    def __init__(self, question, choice, rand=True): # Assumes the answer is the first value of choice
         """Constructor for Questions."""
-        random.seed()
         self.question = question
         self.ans = choice[0]
-        self.choice = self.shuffleChoices(choice)
+        self.choice = self.shuffleChoices(choice, rand)
 
-    def shuffleChoices(self, mult):
+    def shuffleChoices(self, mult, rand=True):
         """Shuffles a list and puts it in a dictionary as a value.
         The key starts at 1 and ends at the length of the list"""
-        random.shuffle(mult)
+        if rand: random.shuffle(mult)
         return {k[0]:k[1] for k in enumerate(mult, 1)} 
     
     def askQuestion(self):
