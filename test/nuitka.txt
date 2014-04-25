@@ -1,0 +1,120 @@
+http://nuitka.net/posts/python-scope-quiz.html
+What happens with this code?
+
+	a = 1
+
+	class some_class():
+		a = a
+	
+	def some_function():
+		a = a
+	
+	some_class()
+	some_function()
+
+
+***some_function() will return an UnboundLocalErrorException
+***Nothing, both will be successful
+***Both will return True
+
+
+http://nuitka.net/posts/python-float-quiz.html
+What value of s, and thus x, to cause the code to complain?
+
+	assert type(s) is str
+	x = float(s)
+	if x != x:
+		print("Bad bad float!") # Make this print
+
+
+***nan
+***1/0
+***banana
+***I give up...
+
+
+http://nuitka.net/posts/python-assert-quiz.html
+Say you have this code:
+
+	assert x == y
+
+How can you do something completely equivalent?
+
+
+***
+if not x == y:
+	raise AssertionError
+*** I don't know what assert
+does...
+*** I need to look this up...
+https://docs.python.org/3/reference/simple_stmts.html#assert
+
+
+http://nuitka.net/posts/python-assert-quiz.html
+What does the same thing as this (in python 2.7+)?
+
+	assert x == y, arg
+
+
+***if not x == y:
+	raise AssertionError(arg)
+*** if not x == y:
+	raise AssertionError, arg
+
+
+http://nuitka.net/posts/try-finally-python-quiz.html
+What is returned from the following function?
+	def f():
+		try:
+			return 1
+		finally:
+			return 2
+
+
+***1
+***2
+***Exception
+
+
+http://nuitka.net/posts/try-finally-python-quiz.html
+What is returned from the following function?
+	def f():
+		try:
+			1/0
+		finally:
+			return 2
+
+
+***2
+***ZeroDivisionError
+***Neither
+
+
+http://nuitka.net/posts/try-finally-python-quiz.html
+Will this do an infinite loop?
+	def f():
+		while True:
+			try:
+				continue
+			finally:
+				break
+
+
+***False
+***True
+
+
+http://nuitka.net/posts/try-finally-python-quiz.html
+What happens in this code?
+	def f():
+		while True:
+			try:
+				break
+			finally:
+				continue
+
+
+***SyntaxError: 'continue' not supported inside 'finally' clause
+***Infinite loop
+***1
+***not 0
