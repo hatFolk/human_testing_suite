@@ -1,0 +1,70 @@
+Question 2 from the Final (Spring 2013):
+Show all the output from running the code below:
+
+	num = 3
+
+	def func1(var1):
+		print "in func 1 var1: " + str(var1)
+		print "type: " + str(type(var1))
+		print "divide: " + str(var1/num)
+		list = []
+		for i in range(int(var1)):
+			list.append(i)
+		return list
+
+	def main():
+		func1(3)
+		print func1(3.0)
+		func1(5)
+		print len(func1(2))
+		t = func1(2)
+		print type(t)
+		print func1(0)
+
+	main()
+
+
+***in func 1 var1: 3
+type: <type 'int'>
+divide: 1
+in func 1 var1: 3.0
+type: <type 'float'>
+divide: 1.0
+[0, 1, 2]
+in func 1 var1: 5
+type: <type 'int'>
+divide: 1
+in func 1 var1: 2
+type: <type 'int'>
+divide: 0
+2
+in func 1 var1: 2
+type: <type 'int'>
+divide: 0
+<type 'list'>
+in func 1 var1: 0
+type: <type 'int'>
+divide: 0
+[]
+***in func 1 var1: 3
+type: <type 'int'>
+divide: 1
+in func 1 var1: 3
+type: <type 'int'>
+divide: 1.0
+[]
+in func 1 var1: 5
+type: <type 'int'>
+divide: 1
+in func 1 var1: 2
+type: <type 'int'>
+divide: 0
+2
+in func 1 var1: 2
+type: <type 'int'>
+divide: 0
+<type 'int'>
+in func 1 var1: 0
+type: <type 'int'>
+divide: 0
+[]
