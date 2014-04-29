@@ -13,7 +13,8 @@ class Test:
     def __init__(self, filename, rndQ=True, rndA=True):
         """Constructor for Tests.
         Takes a file and parses it for Questions"""
-        self.rng = rng
+        self.rndQ = rndQ
+        self.rndA
         file = open(filename, "rU")
         qlist = file.read()
         qlist = self.makeTest(qlist)
