@@ -45,7 +45,7 @@ class Test:
         for i in range(0, len(text), 2): #Build the database based off of what number its on.
             self.database[self.numQuestions] = Question(text[i][0], text[i+1], self.randA) #i is the question, i+1 is the ans
             self.numQuestions+=1
-    
+
     def __iter__(self):
         """Makes Test iterable after shuffling the questions.
         Assumes that the user wanted the questions randomly."""
@@ -79,43 +79,48 @@ class Question:
         """Constructor for Questions."""
         self.question = question
         self.ans = choice[0]
-        self.choice = self.shuffleChoices(choice, rand)
+        self.choice = Choices(choice, rand)
 
-    def shuffleChoices(self, mult, rand=True):
-        """Shuffles a list and puts it in a dictionary as a value.
-        The key starts at 1 and ends at the length of the list"""
-        if rand: random.shuffle(mult)
-        return {k[0]:k[1] for k in enumerate(mult, 1)} 
     
     def askQuestion(self):
         """Asks the question. Gets an answer.
         Returns False if answered correctly. Returns True."""
         print(self.question) #Prints the question
-        for i in sorted(self.choice):
-            print("{}.\n    {}".format(i, self.choice[i].replace('\n','\n    '))) # Prints the Answers nicely
+        print(self.choice) #Prints the answers
         num = input("\n[Choice?] > ")
         print("")
         try:
-            return (self.choice[int(num)] == self.ans) #True if you picked the right answer
+            return (self.choice.choices[int(num)] == self.ans) #True if you picked the right answer #Prints the answers
         except:
             return False #False if you picked otherwise
             
     def __str__(self):
         """Mainly for Debug and telling people that they did something wrong."""
-        quest = ""
-        quest += "{}\n\n".format(self.question)
-        for i in sorted(self.choice):
-            if self.choice[i] == self.ans:
-                quest += "***"
-            quest += "{}.\n\n\t{}\n\n".format(i, self.choice[i])
-        return quest
+        return "{}\n\n".format(self.question)
 
     def __repr__(self):
         return "Question Object @ {}".format(id(self))
 
+class Choices:
+    """Makes a list of Choices"""
+    def __init__(self, mult, rand=True):
+        self.choices = self.makeChoices(mult, rand)
+
+    def makeChoices(self, mult, rand=True):
+        """Shuffles a list and puts it in a dictionary as a value.
+        The key starts at 1 and ends at the length of the list"""
+        if rand: random.shuffle(mult)
+        return {k[0]:k[1] for k in enumerate(mult, 1)} 
+
+    def __str__(self):
+        s = ""
+        for i in sorted(self.choices):
+            s += "{}.\n    {}\n".format(i, self.choices[i].replace("\n", "\n    ")) # Makes a nicely formatted thing.
+        return s
+
 def takeExam(filenames):
-    """If filenames are passed in, they will be created as tests and then tested one by one"""
-    """Acts as main function when hts.py used as program, not module"""
+    """If filenames are passed in, they will be created as tests and then tested one by one
+    Acts as main function when hts.py used as program, not module"""
     if(filenames):
         for i in filenames:
             newTest = Test(i) #Make a Test object
@@ -134,7 +139,7 @@ def takeExam(filenames):
                 print("Please review these questions!:\n")
                 i = 1
                 for k in answeredWrong:
-                    print("{}.\n    {}\n".format(i, k.__str__().replace('\n', '\n    ')))
+                    print("{}.\n    {}\n".format(i, str(k).replace('\n', '\n    ')))
                     i += 1
                 print("YOU GOT {} / {} ! {:.2f}%!".format(x - len(answeredWrong), x, (x- len(answeredWrong))/x))
             else:
