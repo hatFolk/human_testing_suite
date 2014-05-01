@@ -14,7 +14,7 @@ class Test:
         """Constructor for Tests.
         Takes a file and parses it for Questions"""
         self.rndQ = rndQ
-        self.rndA
+        self.rndA = rndA
         file = open(filename, "rU")
         qlist = file.read()
         qlist = self.makeTest(qlist)
