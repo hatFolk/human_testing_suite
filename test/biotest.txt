@@ -1,0 +1,834 @@
+Tissue type that covers surfaces:
+
+
+***Epithelial
+***Connective
+***Covering
+***Nervous
+***Muscle
+
+
+Blood belongs to this tissue type:
+
+
+***Connective
+***Liquid
+***Muscle
+***Sporadic
+***Epithelial
+
+
+Squamous epithelial cells are:
+
+
+***Flattened
+***Cube shaped
+***Column shaped
+***Perfectly spherical
+
+
+Epithelial tissue with many layers:
+
+
+***Stratified
+***Layered
+***Pseudostratified
+***Simple
+
+
+Connective tissue type that can store energy:
+
+
+***Adipose
+***Loose
+***Fibrous
+***Cartilage
+***Bone
+
+
+Muscle tissue that has intercalated disks:
+
+
+***Cardiac
+***Skeletal
+***Smooth
+***None of these
+
+
+Smooth muscle tissue is also known as:
+
+
+***Involuntary
+***Striated
+***Skeletal
+***Cardiac
+***Voluntary
+
+
+True or False: All Four Tissue Types are found in the major organs:
+
+
+***True
+***False
+
+
+You touch a metal lamp post in winter. It feels very cold. This is an example
+of heat being exchanged by:
+
+
+***Conduction
+***Convection
+***Radiation
+***Evaporation
+***Tacticity
+
+
+Wind chill is heat exchange by:
+
+
+***Convection
+***Conduction
+***Radiation
+***Evaporation
+***Taciticity
+
+
+A lizard is a/an:
+
+
+***Ectotherm
+***Endotherm
+
+
+Humans are:
+
+
+***Homeotherms
+***Poikilotherms
+***Ectotherms
+***Poikilotherms and Ectotherms
+***Homeotherms and Ectotherms
+
+
+When it is cold out, the capillaries in your skin:
+
+
+***Construct
+***Dilate
+***Neither, skin is not affected by cold
+
+
+True or False: When a mammal like a chipmunk hibernates it's body termperature
+drops:
+
+
+***True
+***False
+
+
+An example of a suspension feeder:
+
+
+***Blue Whale
+***Human
+***Mosquito
+***Catepillar
+
+
+Humans are what kind of feeders:
+
+
+***Bulk
+***Suspension
+***Substrate
+***Fluid
+
+
+True or False: Humans are autotrophic:
+
+
+***True
+***False
+
+
+The most important reason for feeding is to get:
+
+
+***Energy
+***Essential Nutrients
+***Raw materials
+***None of These
+
+
+In the long term, excess energy is stored as:
+
+
+***Fat
+***Sugar
+***Glycogen
+***Starch
+***Protein
+
+
+Carbon, hydrogen, and oxygen would be examples of:
+
+
+***Raw Materials
+***Essential nutrients
+
+
+Insufficient Vitamin C causes:
+
+
+***Scurvy
+***Rickets
+***Bone damage
+***Weight gain
+
+
+Amylase is produced in the:
+
+
+***Oral cavity
+***Esophagus
+***Stomach
+***Large intestine
+***Liver
+
+
+True or False: During swallowing, the epiglottis closes off the esophagus
+
+
+***False
+***True
+
+
+True or False: The stomach wall releases pepsin to help digest proteins
+(careful!)
+
+
+***False
+***True
+
+
+Controls the opening to the small intestine:
+
+
+***Pyloric sphincter
+***Cardiac sphincter
+***Oral valve
+***Semi-lunar valve
+
+
+Lipase is released by the (pick best answer):
+
+
+***Pancreas
+***Liver
+***Small Intestine
+***Stomach
+***Brain
+
+
+Bile is stored in the
+
+
+***Gall bladder
+***Liver
+***Small intestine
+***Brain
+***Lymphatic system
+
+
+The hepatic portal vein takes blood from the small intestine to the:
+
+
+***Stomach
+***Large intestine
+***Gall bladder
+***Brain
+***Lymphatic system
+
+
+Microvilli are found in the:
+
+
+***Small intestine
+***Liver
+***Gall bladder
+***Brain
+***Lymphatic system
+
+
+If water moves too quickly through the large intestine, the result is:
+
+
+***Diarrhea
+***Constipation
+***Neither
+
+
+A cecum is found in animals that eat lots of:
+
+
+***Grass/Leaves
+***Meat
+
+
+Gastrin:
+
+
+***Makes the stomach more acidic
+***Makes the stomach less acidic
+
+
+True or False: Some small salamanders (amphibians) do not have lungs:
+
+
+***True
+***False
+
+
+Earthworms exchange gases by using:
+
+
+***Skin
+***Gills
+***Lungs
+***Trachea
+
+
+A grasshopper exchanges gases by using:
+
+
+***Trachea
+***Gills
+***Lungs
+***Skin
+
+
+True or False: A counter current system is more efficient than a same current
+system because it interpolates hot and cold.
+
+
+***False
+***True
+
+
+The traachea of humans is lined with:
+
+
+***Cillia
+***Flagella
+***Pseudopodia
+***Microvilli
+
+
+Alveoli are found in:
+
+
+***Humans
+***Earthworms
+***Fish
+***Plants
+
+
+The trachea divides into
+
+
+***Bronchi
+***The pulmonary artery
+***The pulmonary vein
+***The esophagus
+
+
+An animal with positive pressure breathing:
+
+
+***Frog
+***Earthworm
+***Fish
+***Human
+
+
+During inhalation (in humans), the thoracic (chest) cavity:
+
+
+***Expands
+***Contracts
+
+
+The impulse to breathe is caused (indirectly) by (give best answer):
+
+
+***High levels of CO2
+***High levels of oxygen
+***Low levels of oxygen
+***Low levels of CO2
+
+
+In an area of low oxygen concentration, hemoglobin:
+
+
+***Releases oxygen
+***Attaches to oxygen
+***None
+
+
+Water and carbon dioxide react to form
+
+
+***Carbonic acid
+***Oxygen
+***Glucose
+***Hemoglobin
+***None
+
+
+If you smoke, on average you will die about how many years earlier than a
+person who does not smoke?
+
+
+***14
+***2
+***5
+***10
+
+
+Smoking can cause all of the following except
+
+
+***No exceptions
+***Lung cancer
+***Premature wrinkling
+***Emphysema
+***Increased blood pressure and Bad cholesterol
+
+
+Each year, about how many people die as a result of smoking in the U.S.?
+
+
+***480,000
+***1,000
+***10,000
+***100,000
+
+
+The single biggest cause of preventable deaths in the United States is
+
+
+***Smoking
+
+
+Humans have what kind of circulatory system
+
+
+***Closed
+***Open
+***Semi-open
+
+
+Fish have how many ventricles?
+
+
+***One
+***Two
+***Three
+***Four
+
+
+Blood vessels that actually provide blood to the tissues. Can be "turned on"
+or "turned off":
+
+
+***Capillaries
+***Arteries
+***Veins
+
+
+In adults, blood from the right ventricle goes to the:
+
+
+***Lungs
+***Body
+***Right Atrium
+***Right brain
+***Left atrium
+
+
+In the fetus, blood from the right atrium can go to the:
+
+
+***Left atrium
+***Lungs
+***Left ventricle
+***Placenta
+
+
+The valve between the left ventricle and the aorta (the big vessel leaving the
+heart) is called the:
+
+
+***Semi-lunar valve
+***AV valve
+***Tricuspid
+***Bicuspid
+
+
+The amount of blood pumped by the right ventricle in one minute is your
+(careful, TRICK question!)
+
+
+***None of these
+***Heart rate
+***Stroke volume
+***Cardiac output
+
+
+A typical resting heart rate:
+
+
+***70
+***35
+***110
+***150
+***300
+
+
+When the ventricles are relaxed this is known as:
+
+
+***Diastole
+***Systole
+***Tristole
+***Systemic rest
+
+
+True or False: When the v entricles are contracting, the atria are relaxing:
+
+
+***True
+***False
+
+
+The third peak in an EKG (=ECG) is caused by:
+
+
+***The ventricles relaxing
+***The atria contracting
+***The atria relaxing
+***The ventricles contracting
+
+
+Epinephrine (adrenaline) can cause your heart rate to:
+
+
+***Increase
+***Decrease
+***Does not affect Heart Rate
+
+
+The resting heart rate of someone in good physical condition will be _______
+that that of someone who is bad physical condition.
+
+
+***Lower
+***Higher
+***Unchanged
+
+
+The typical, average, systolic pressure is:
+
+
+***120
+***40
+***80
+***160
+***200
+
+
+True or False:
+
+
+***True
+***False
+
+
+Platelets are important in
+
+
+***In clotting
+***The immune system
+***In transporting oxygen
+
+
+True or False: Blood plasma is composed of living cells.
+
+
+***False
+***True
+
+
+A preventable risk factor for heart disease:
+
+
+***Smoking
+***Age
+***Sex
+***Family history
+***Disease
+
+
+"Good cholesterol":
+
+
+***HDL
+***LDL
+
+
+A blockage of the coronary arteries can lead to (pick best answer):
+
+
+***Heart attack
+***Congenital heart disease
+***Arrhythmias
+***Heart valve disease
+
+
+The number 1 killer of people in the U.S.:
+
+
+***Heart disase
+***Cancer
+***Stroke
+***Diabetes
+***HIV
+
+
+Your skin is part of which immune defense:
+
+
+***Non-specific
+***Specific
+
+
+True or False: Stomach acid serves to kill many bacteria and is an important
+part of the non-specific immune system:
+
+
+***True
+***False
+
+
+True or False: Histamine can be released as part of inflammatory reponse:
+
+
+***True
+***False
+
+
+Cells that engulf ("eat") bacteria, damaged cells, or other pathogens during
+an inflammatory response:
+
+
+***Phagocytes
+***B-cells
+***T-cells
+***Antibodies
+
+
+B-cells originate in the:
+
+
+***Bone marrow
+***Thymus
+***Thyroid
+***Lymph nodes
+***None of these
+
+
+T-cells mature in the:
+
+
+***Thymus
+***Thyroid
+***Lymph nodes
+***Bone marrow
+***None of these
+
+
+How many different antigen receptors does an individual B-cell have?
+
+
+***1
+***10
+***100
+***about 250
+***Over 100 million
+
+
+When exposed to an antigen, B-cells that bind to this antigen make:
+
+
+***Effector Cells and Memory Cells
+***Effector Cells
+***Memory Cells
+***APC's
+***Effector Cells, Memory Cells, and APC's
+
+
+Effector cells make
+
+
+***Antibodies
+***Memory cells
+***APC's
+***Antigens
+
+
+Helper T-cells can do all of the following except:
+
+
+***Make Q-cells
+***Make more helper T-cells
+***Activate cytotoxic T-cells
+***Activate B-cells
+
+
+An example of an autoimmune disease
+
+
+***Multiple Scelerosis
+***HIV
+***Malaria
+***Sleeping Sickness
+
+
+AIDS is most severe in:
+
+
+***Sub-Saharan Africa
+***The U.S.
+***Europe
+***Australia
+
+
+Malaria is caused by a:
+
+
+***Parasite
+***Virus
+***Bacteria
+
+
+Malaria destroys:
+
+
+***Red blood cells
+***T-cells
+***B-cells
+***Brain cells
+
+
+Sleeping sickness is spread by
+
+
+***Tse-tse flies
+***Mosquitoes
+***Ticks
+***Chiggers
+
+
+True or False: Untreated, sleeping sickness is fatal:
+
+
+***True
+***False
+
+
+The two main function of your excretory system are metabolic waste removal
+and:
+
+
+***Maintaining the correct balance of salts in your body
+***Secretion of adrenalin
+***Replacing damaged red blood cells
+***Removal of damaged T-cels
+
+
+Metabolic waste product used by humans
+
+
+***Urea
+***Uric acid
+***Ammonia
+
+
+True or False: All nephrons have a loop of Henle (in Humans):
+
+
+***False
+***True
+
+
+Increasing levels of ADH cause the kidneys to:
+
+
+***Increase water absorption
+***Release water to the bladder
+
+
+Released by the posterior pituitary
+
+
+***Oxytocin
+***GH
+***ACTH
+***MSH
+***FSH
+
+
+Resets your biological clock:
+
+
+***Melatonin
+***GH
+***MSH
+***Adrenalin
+***Insulin
+
+
+Parathyroid hormone is released by the:
+
+
+***Parathyroid
+***Anterior pituitary
+***Posterior pituitary
+***Thyroid
+
+
+Increasing blood sugar causes the release of:
+
+
+***Insulin
+***Glucagon
+
+
+As a result of this exam, your anterior pituitary is most likely releasing...
+
+
+***ACTH
+***GH
+***MSH
+***FSH
+***Oxytocin
+
+
+An example of asexual reproduction
+
+
+***All of these
+***Fission
+***Budding
+***Fragmentation
+***Parthenogensis

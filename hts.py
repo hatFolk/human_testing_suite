@@ -6,13 +6,11 @@ import random
 class Test:
     """Takes a file, breaks it up into Question and
     Multiple Choices and make Question objects"""
-    database = {}
-    numQuestions = 0
-    rndQ = True #Randomize questions?
-    rndA = True #Randomize answers?
     def __init__(self, filename, rndQ=True, rndA=True):
         """Constructor for Tests.
         Takes a file and parses it for Questions"""
+        self.database = {}
+        self.numQuestions = 0
         self.rndQ = rndQ
         self.rndA = rndA
         file = open(filename, "rU")
@@ -43,14 +41,14 @@ class Test:
         Precondition: text has already been through makeTest
         AND text[i+1][0] is the CORRECT answer to the question"""
         for i in range(0, len(text), 2): #Build the database based off of what number its on.
-            self.database[self.numQuestions] = Question(text[i][0], text[i+1], self.randA) #i is the question, i+1 is the ans
+            self.database[self.numQuestions] = Question(text[i][0], text[i+1], self.rndA) #i is the question, i+1 is the ans
             self.numQuestions+=1
 
     def __iter__(self):
         """Makes Test iterable after shuffling the questions.
         Assumes that the user wanted the questions randomly."""
         x = list(range(self.numQuestions))
-        if self.randQ : random.shuffle(x) # Is there a way to 'toggle' the randomness?
+        if self.rndQ : random.shuffle(x) # Is there a way to 'toggle' the randomness?
         for i in x:
             yield self.database[i]
         raise StopIteration #TIL: To make an __iter__ you should raise this
@@ -134,6 +132,7 @@ def takeExam(filenames):
                 print("-"*10)
                 if not j.askQuestion(): #If the answer was wrong
                     answeredWrong.append(j) #Append the answer to a wrong answer list
+                    print("This is the right answer:\n{}".format(j.ans))
                 ctr -= 1
             if len(answeredWrong) > 0:
                 print("Please review these questions!:\n")
