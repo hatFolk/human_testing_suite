@@ -132,15 +132,19 @@ def takeExam(filenames):
                 print("-"*10)
                 if not j.askQuestion(): #If the answer was wrong
                     answeredWrong.append(j) #Append the answer to a wrong answer list
-                    print("This is the right answer:\n{}".format(j.ans))
+                    print("\nThis is the right answer:\n{}".format(j.ans))
                 ctr -= 1
             if len(answeredWrong) > 0:
                 print("Please review these questions!:\n")
                 i = 1
                 for k in answeredWrong:
-                    print("{}.\n    {}\n".format(i, str(k).replace('\n', '\n    ')))
+                    print("{}.\n    {}\n    Correct Answer: {}\n"
+                            .format(i,
+                            str(k).replace('\n', '\n    '),
+                            k.ans.replace('\n', '\n    ')))
                     i += 1
-                print("YOU GOT {} / {} ! {:.2f}%!".format(x - len(answeredWrong), x, (x- len(answeredWrong))/x))
+                print("YOU GOT {} / {} ! {:.2f}%!"
+                .format(x - len(answeredWrong), x, (x- len(answeredWrong))/x))
             else:
                 print("YOU WIN ALL OF THE QUESTIONS! YAY!")
     else:
