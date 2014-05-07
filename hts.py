@@ -71,7 +71,6 @@ class Test:
 class Question:
     """Question object assumes that the first multiple choice answer is the correct answer """
     question = ""
-    choice = {}
     ans = ""
     def __init__(self, question, choice, rand=True): # Assumes the answer is the first value of choice
         """Constructor for Questions."""
