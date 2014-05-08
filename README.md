@@ -28,3 +28,4 @@ Mini-tutorial on how to run this with a file in the tests directory:
 
 	"python3 hts.py tests/<name of file>"
 
+There's also a function in there that allows you to take a list of questions and turns it into a text file of lists.
