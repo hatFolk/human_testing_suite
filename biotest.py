@@ -17,6 +17,7 @@ def exportWrong(xs):
 
 def main(filename):
     exam = hts.Test(filename)
+    print("{} Questions Created!".format(len(exam)))
     ctr = int(input("How many questions do you want to be asked? > "))
     x = ctr
     answeredWrong = []
