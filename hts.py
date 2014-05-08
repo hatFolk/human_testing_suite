@@ -109,11 +109,30 @@ class Choices:
         if rand: random.shuffle(mult)
         return {k[0]:k[1] for k in enumerate(mult, 1)} 
 
+    def __iter__(self):
+        for i in self.choices.values():
+            yield i
+        raise StopIteration
+
     def __str__(self):
         s = ""
         for i in sorted(self.choices):
             s += "{}.\n    {}\n".format(i, self.choices[i].replace("\n", "\n    ")) # Makes a nicely formatted thing.
         return s
+
+def exportTest(xs, filename):
+    """xs is a list of questions. filename is where the tests will be stored"""
+    test = open(filename, "w")
+    x = ""
+    for i in xs:
+        x += "{}\n\n\n***{}\n".format(i.question, i.ans)
+        for j in i.choice:
+            if j != i.ans:
+                x+="***{}\n".format(j)
+        x += "\n\n"
+    test.write(x[:-3])
+    test.close()
+
 
 def takeExam(filenames):
     """If filenames are passed in, they will be created as tests and then tested one by one

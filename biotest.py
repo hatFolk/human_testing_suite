@@ -1,20 +1,5 @@
 import hts, sys
 
-def exportWrong(xs):
-    filename = input("Name of file? > ")
-    test = open(filename, "w")
-    x = ""
-    for i in xs:
-        x += (i.question+"\n\n\n"+"***"+i.ans+"\n")
-        for j in i.choice.choices.values():
-            if j != i.ans:
-                x+=("***"+j+"\n")
-        x+=("\n\n")
-    test.write(x[:-3])
-    test.close()
-    print("Success!")
-
-
 def main(filename):
     exam = hts.Test(filename)
     print("{} Questions Created!".format(len(exam)))
@@ -34,7 +19,9 @@ def main(filename):
         print("You go {}/{}! {:.2f}%!".format(x-len(answeredWrong), x, (x-len(answeredWrong))/x))
         a = int(input("Export Incorrect Questions to test file?\n1. Yes\n2. No\n>"))
         if a == 1:
-            exportWrong(answeredWrong)
+            filename = input("Name of file? > ")
+            hts.exportTest(answeredWrong, filename)
+            print("Success!")
         else:
             print("Okay!")
     else:
